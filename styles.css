@@ -11,7 +11,14 @@ body {
   padding: 4px;
 }
 .screen {
-  height: 90px;
+  height: 100px;
+  border: 2px black solid;
+}
+.resultScreen {
+  height: 30px;
+}
+.bottomScreen {
+  height: 70px;
 }
 .btnsPad {
   display: flex;
@@ -21,4 +28,7 @@ body {
 button {
   height: 50px;
   width: 80px;
+}
+button:nth-last-child() {
+  height: 100px;
 }
