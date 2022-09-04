@@ -4,7 +4,7 @@ const allNums = document.querySelectorAll(".nums");
 const clear = document.querySelector(".clear");
 const operators = document.querySelectorAll(".oprator");
 const backspace = document.querySelector(".backspace");
-const btns = document.querySelectorAll(".btn");
+// const btns = document.querySelectorAll(".btn");
 const equals = document.querySelector(".equals");
 
 let chosenOperator = null;
@@ -36,16 +36,16 @@ const operate = function (operator, num1, num2) {
             return subtract(num1, num2);
         case "×":
             return multiply(num1, num2);
-        case "%":
+        case "÷":
             return divide(num1, num2);
     }
 }
 function reset() {
     chosenOperator = null;
-    firstOperand = ""
-    secondOperand = ""
-    bottomScreen.innerText = ""
-    resultScreen.innerText = ""
+    firstOperand = "";
+    secondOperand = "";
+    bottomScreen.innerText = "";
+    resultScreen.innerText = "";
 }
 
 clear.addEventListener("click", reset);
@@ -56,11 +56,11 @@ backspace.addEventListener("click", () => {
     bottomScreen.innerText = ''
     bottomScreen.append(newStr)
 
-})
+});
 allNums.forEach(num => num.addEventListener("click", (evt) => {
     const btnValue = evt.target.value = evt.target.innerText;
     bottomScreen.append(btnValue);
-}))
+}));
 
 operators.forEach(operator => operator.addEventListener("click", (evt) => {
     const btnValue = evt.target.value = evt.target.innerText;
@@ -69,7 +69,7 @@ operators.forEach(operator => operator.addEventListener("click", (evt) => {
     resultScreen.append(`${bottomScreenValue} ${chosenOperator}`)
     firstOperand = bottomScreenValue
     bottomScreen.innerText = "";
-}))
+}));
 
 equals.addEventListener("click", () => {
     secondOperand = bottomScreen.innerText;
@@ -79,4 +79,4 @@ equals.addEventListener("click", () => {
     bottomScreen.innerText = ""
     bottomScreen.append(result)
     console.log(result)
-})
+});
